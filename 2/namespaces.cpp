@@ -1,5 +1,8 @@
 namespace my_namespace
 {
+    namespace qwe{
+
+    }
     int function_into_user_namespace(int x)
     {
         return x;

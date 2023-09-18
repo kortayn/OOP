@@ -13,10 +13,15 @@ public:
 
     void set_value1(int value)
     {
-        value1 = value;
+        if(value > 100)
+        {
+            value1 = value;
+        }
+        
     }
 
-    void set_value2(float value){
+    void set_value2(float value)
+    {
         value2 = value;
     }
 

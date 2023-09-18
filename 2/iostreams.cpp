@@ -6,12 +6,12 @@ int main(int argc, char** argv)
 {
     /*
     istream
-    osteram
+    ostream
     iostream
     */
 
     //Запись в поток
-    std::cout << "Hello World!" << std::endl;
+    std::cout << 123 << std::endl;
 
     //чтение данных
     int x;
@@ -23,6 +23,6 @@ int main(int argc, char** argv)
     std::getline(std::cin, str);
 
     //Вывод ошибок
-    std::cerr << "Error" <<std::endl; 
+    std::cerr << "Error" << std::endl; 
     return 0;
 }

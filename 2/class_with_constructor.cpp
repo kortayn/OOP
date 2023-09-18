@@ -27,11 +27,13 @@ int main(int argc, char** argv)
     ClassWithConstructor *object_ptr1 = new ClassWithConstructor();
     ClassWithConstructor *object_ptr2 = new ClassWithConstructor(1, 2.2);
 
+    delete object_ptr1;
+    delete object_ptr2;
+
     std::unique_ptr<ClassWithConstructor> unique_ptr_class_with_constructor1 {std::make_unique<ClassWithConstructor>()};
     std::unique_ptr<ClassWithConstructor> unique_ptr_class_with_constructor2 {std::make_unique<ClassWithConstructor>(1, 2.2)};
 
-    delete object_ptr1;
-    delete object_ptr2;
+    
 
     return 0;
 }

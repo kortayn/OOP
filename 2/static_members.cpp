@@ -36,5 +36,7 @@ private:
 
 int main(int argc, char** argv)
 {
+    MyInteger integer(123);
+    MyInteger::parse("std::string input");
     return 0;
 }

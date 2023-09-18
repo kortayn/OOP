@@ -13,7 +13,7 @@ ClassWithSeparateDefinition
     int_value = i;
 }
 
-std:: string ClassWithSeparateDefinition::method1()
+std::string ClassWithSeparateDefinition::method1()
 {
     return string_value;
 }
