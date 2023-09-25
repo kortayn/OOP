@@ -1,0 +1,19 @@
+Реализовать класс Dictionary<Key, Value> - коллекцию пар ключ-значение.
+Открытые методы и операторы:
+
+1. Конструктор по умолчанию.
+2. Value& operator[](const Key& key) - возвращает значение по ключу key, если такой ключ отсутствует, он создаётся.
+3. bool empty() const - истина, если контейнер пуст.
+4. int size() const - возвращает количество элементов.
+5. void clear() - очищает коллекцию.
+6. Value erase(Key& key) - извлекает элемент из коллекции по ключу и возвращает значение.
+7. Value find(Key& key) - ищет элемент из коллекции по ключу и возвращает значение.
+8. bool contains(Key& key) - ищет элемент из коллекции по ключу и возвращает истину, если находит.
+9. bool operator==(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&)
+10. bool operator!=(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&)
+11. bool operator<(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&)
+12. bool operator<=(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&)
+13. bool operator>=(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&)
+14. bool operator>(const Dictionary<Key,Value>&, const Dictionary<Key,Value>&) - сравниваются два словаря в лексикографическом порядке.
+
+Словарь реализуется на основе АВЛ дерева. Сырые указатели использовать запрещено (!). Для ключа добавить проверку - на объектах типа Key определены операторы сравнения.
