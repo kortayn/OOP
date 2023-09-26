@@ -6,27 +6,27 @@ class TemplateClass
 };
 
 template<typename K>
-class TemplateClass2 : TemplateClass<K>
+class TemplateClass2 : public TemplateClass<K>
 {
     public:
     K value2;
 };
 
 template<typename T, typename K>
-class TemplateClass3 : TemplateClass<T>
+class TemplateClass3 : public TemplateClass<T>
 {
     public:
     K value2;
 };
 
 template<typename K>
-class TemplateClass4 : TemplateClass<int>
+class TemplateClass4 : public TemplateClass<int>
 {
     public:
     K value2;
 };
 
-class SimpleClass : TemplateClass<double>
+class SimpleClass : public TemplateClass<double>
 {
     public:
     char value = 2;

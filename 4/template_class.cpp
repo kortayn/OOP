@@ -1,4 +1,5 @@
 #include <string>
+
 template<typename T, typename K = int>
 class TemplateClass
 {

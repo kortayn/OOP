@@ -17,11 +17,22 @@ class FirstItemLessOrEqual : std::exception
     {
         return "a less or equal b";
     }
+
+    int get_a() const
+    {
+        return log_a;
+    }
+
+    int get_b() const
+    {
+        return log_b;
+    }
 };
 
 int sub_natural(int a, int b)
 {
-    if (a <= b) {
+    if (a <= b)
+    {
         FirstItemLessOrEqual filoe(a, b);
         throw filoe;
     }
@@ -40,6 +51,11 @@ int main(int argc, char** argv)
     catch (const FirstItemLessOrEqual f)
     {
         std::cout << f.what() << std::endl;
+        std::cout << f.get_a() << " " << f.get_b() << std::endl;
+    }
+    catch (const std::string str)
+    {
+
     }
     return 0;
 }

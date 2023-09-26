@@ -2,7 +2,7 @@
 
 template<typename T> T add(T a, T b)
 {
-    return a + b;
+    return add<T>(a + b, b + a);
 }
 
 template<typename T, typename K> void print(T& arg1, K& arg2)
