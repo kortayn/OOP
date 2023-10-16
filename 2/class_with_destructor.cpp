@@ -1,3 +1,4 @@
+//RAII
 class ClassWithDestructor
 {
 public:

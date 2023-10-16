@@ -14,7 +14,7 @@ int main(int argc, char** argv)
     
     float&& rv_ref {var + 5.0f}; //rv_ref - ссылка на rvalue
     
-    // float&& rv_ref2 = var; - //так нельзя rv_ref2 - rvalue
+    // float&& rv_ref2 = var; //так нельзя rv_ref2 - rvalue
 
     float&& rv_ref2 = std::move(var); // так можно. move преобразует тип в rvalue
 
