@@ -1,10 +1,22 @@
-Реализовать класс римских чисел RomanNumber.
-По умолчанию римское число равно единице.
-Реализовать конструктор с параметром типа unsigned short.
-Реализовать конструктор копирования.
-Переопределить операторы сложения, вычитания, умножения, целочисленного деления, вывода числа в поток, операторы сравнения.
+Реализовать класс римских чисел RomanNumber:
+1. Реализовать конструктор по умолчанию RomanNumber(). Начальное значение числа - 1.
+2. Реализовать конструктор с параметром типа unsigned short. RomanNumber(unsigned short)
+3. Реализовать конструктор копирования. RomanNumber(RomanNumber&)
+4. Переопределить операторы:
+    4.1. сложения - RomanNumber operator + (const RomanNumber& roman_number) const
+    4.2. вычитания - RomanNumber operator - (const RomanNumber& roman_number) const
+    4.3. умножения - RomanNumber operator * (const RomanNumber& roman_number) const
+    4.4. целочисленного деления - RomanNumber operator / (const RomanNumber& roman_number) const
+    4.5. вывода числа в поток - friend std::ostream& operator<< (std::ostream& out, const Point& point)
+    4.6. операторы сравнения:
+        4.6.1  bool operator == (const RomanNumber& roman_number) const.
+        4.6.2  bool operator != (const RomanNumber& roman_number) const.
+        4.6.3  bool operator > (const RomanNumber& roman_number) const.
+        4.6.4  bool operator < (const RomanNumber& roman_number) const.
+        4.6.5  bool operator >= (const RomanNumber& roman_number) const.
+        4.6.6  bool operator <= (const RomanNumber& roman_number) const.
 
-Класс должен корректно представлять целые положительные числа от 1 до 3999. При возникновении ошибочных ситуаций (они могут возникнуть в конструкторе при передаче нуля в качестве параметра, при вычитании или делении, когда результат операции равен или меньше нуля) следует возбуждать исключение типа RomanNumberException. Класс RomanNumberException нужно реализовать самостоятельно, он должен являться наследником класса exception.
+Класс должен корректно представлять целые положительные числа от 1 до 3999. При возникновении ошибочных ситуаций (они могут возникнуть, например, в конструкторе при передаче нуля в качестве параметра, при вычитании или делении, когда результат операции равен или меньше нуля) следует возбуждать исключение типа RomanNumberException. Класс RomanNumberException нужно реализовать самостоятельно, он должен являться наследником класса exception.
 Ссылка на конвертер римских чисел с принципами римской системы счисления (http://graecolatini.bsu.by/htm-different/num-converter-roman.htm)
 
 Реализовать тесты для класса RomanNumber в стиле BDD.
