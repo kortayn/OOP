@@ -14,17 +14,20 @@ REQUIRE_FALSE( expression ) - завершает текущий тест, есл
 CHECK_FALSE( expression ) - генерирует предупреждение, если выражение истинно,
                     но тест продолжает работу
 
-REQUIRE_NOTHROW( expression ) - завершает текущий тест, если выражение не бросает исключение и выражение истинно
-CHECK_NOTHROW( expression ) - генерирует предупреждение, если выражение не бросает исключение и выражение истинно
+REQUIRE_NOTHROW( expression ) - завершает текущий тест, если выражение бросает исключение
+CHECK_NOTHROW( expression ) - генерирует предупреждение, если выражение бросает исключение
 
-REQUIRE_THROWS( expression ) - завершает текущий тест, если выражение бросает исключение и выражение истинно
-CHECK_THROWS( expression ) - генерирует предупреждение, если выражение бросает исключение и выражение истинно
+REQUIRE_THROWS( expression ) - завершает текущий тест, если выражение не бросает исключение
+CHECK_THROWS( expression ) - генерирует предупреждение, если выражение не бросает исключение
 
-REQUIRE_THROWS_AS( expression, exception type ) - завершает текущий тест, если выражение бросает исключение типа type и выражение истинно
-CHECK_THROWS_AS( expression, exception type ) - генерирует предупреждение, если выражение бросает исключение типа type и выражение истинно
+REQUIRE_THROWS_AS( expression, exception type ) - завершает текущий тест, если выражение бросает исключение типа type
+CHECK_THROWS_AS( expression, exception type ) - генерирует предупреждение, если выражение бросает исключение типа type
 
 REQUIRE_THROWS_WITH( expression, string or string matcher ) - завершает текущий тест, если выражение бросает исключение-строку или string matcher
 CHECK_THROWS_WITH( expression, string or string matcher ) - генерирует предупреждение, если выражение бросает исключение-строку или string matcher
+
+Matcher'ы - фреймворк для создания проверок для сложных типов данных
+Подробнее можно почитать тут https://github.com/catchorg/Catch2/blob/devel/docs/matchers.md
 
 Сравнение значений с плавающей точкой:
 Approx target = Approx(100).epsilon(0.01);
@@ -51,7 +54,8 @@ Approx target1 = Approx(100).scale(100).margin(5);
 104.0 == target1; // истина
 */
 
-/*TEST_CASE()
+/*
+TEST_CASE()
 {
     REQUIRE(factorial(2) == 2);
 }
@@ -61,7 +65,10 @@ TEST_CASE("Test with n less or equal than 1", "[tag1]")
 {
     REQUIRE(factorial(1) == 1);
 }
+*/
 
+//Секции используются для однократной инициализации параметров для нескольких тестов
+//Каждая секция независима от других
 TEST_CASE( "vectors can be sized and resized", "[vector]" ) 
 {
 	// share some code
@@ -99,9 +106,54 @@ TEST_CASE( "vectors can be sized and resized", "[vector]" )
         REQUIRE( v.size() == 5 );
         REQUIRE( v.capacity() >= 5 );
     }
-}*/
+}
 
+TEST_CASE("CHECK example")
+{
+    std::vector<int> v( 5 );
+    CHECK( v.capacity() >= 10 );
+    CHECK( v.size() == 5 );
+}
+
+TEST_CASE("NOTHROW example")
+{
+    CHECK_NOTHROW(factorial(3));
+    REQUIRE_NOTHROW(factorial(3));
+    CHECK_NOTHROW(throw_method());
+    REQUIRE_NOTHROW(throw_method());
+}
+
+TEST_CASE("THROWS example")
+{
+    CHECK_THROWS(throw_method());
+    REQUIRE_THROWS(throw_method());
+    CHECK_THROWS(factorial(3));
+    REQUIRE_THROWS(factorial(3));
+}
+
+TEST_CASE("THROWS_AS example")
+{
+    CHECK_THROWS_AS(throw_method(), std::string);
+    REQUIRE_THROWS_AS(throw_method(), std::string);
+    CHECK_THROWS_AS(factorial(3), std::string);
+    REQUIRE_THROWS_AS(factorial(3), std::string);
+}
+
+TEST_CASE("THROWS_WITH example")
+{
+    CHECK_THROWS_AS(throw_method(), std::string);
+    REQUIRE_THROWS_AS(throw_method(), std::string);
+    CHECK_THROWS_AS(factorial(3), std::string);
+    REQUIRE_THROWS_AS(factorial(3), std::string);
+}
+
+TEST_CASE("String matcher example")
+{
+    CHECK_THAT("Hello", Catch::Matchers::StartsWith("he"));
+    REQUIRE_THAT("Hello", Catch::Matchers::StartsWith("He", Catch::CaseSensitive::No));
+}
 //BDD style
+/*
 SCENARIO( "vectors can be sized and resized", "[vector]" ) 
 {
          // given conditions
@@ -156,3 +208,4 @@ SCENARIO( "vectors can be sized and resized", "[vector]" )
         }
     }
 }
+*/

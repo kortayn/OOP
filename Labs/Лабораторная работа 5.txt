@@ -19,4 +19,4 @@
 Класс должен корректно представлять целые положительные числа от 1 до 3999. При возникновении ошибочных ситуаций (они могут возникнуть, например, в конструкторе при передаче нуля в качестве параметра, при вычитании или делении, когда результат операции равен или меньше нуля) следует возбуждать исключение типа RomanNumberException. Класс RomanNumberException нужно реализовать самостоятельно, он должен являться наследником класса exception.
 Ссылка на конвертер римских чисел с принципами римской системы счисления (http://graecolatini.bsu.by/htm-different/num-converter-roman.htm)
 
-Реализовать тесты для класса RomanNumber в стиле BDD.
+Реализовать тесты для класса RomanNumber в стиле BDD. Для тестов использовать Catch2. Скачать отсюда https://github.com/catchorg/Catch2/releases catch_amalgamated.cpp и catch_amalgamated.hpp файлы. Пример компиляции: clang++ ./factorial.cpp ./catch_test.cpp ./catch_amalgamated.cpp -o catch_test.exe. В factorial.cpp - описание тестируемых функций, в catch_test.cpp - код тестов, в catch_amalgamated.cpp - точка входа.
