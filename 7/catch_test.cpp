@@ -65,7 +65,7 @@ TEST_CASE("Test with n less or equal than 1", "[tag1]")
 {
     REQUIRE(factorial(1) == 1);
 }
-*/
+
 
 //Секции используются для однократной инициализации параметров для нескольких тестов
 //Каждая секция независима от других
@@ -141,10 +141,10 @@ TEST_CASE("THROWS_AS example")
 
 TEST_CASE("THROWS_WITH example")
 {
-    CHECK_THROWS_AS(throw_method(), std::string);
-    REQUIRE_THROWS_AS(throw_method(), std::string);
-    CHECK_THROWS_AS(factorial(3), std::string);
-    REQUIRE_THROWS_AS(factorial(3), std::string);
+    CHECK_THROW_WITH(throw_method(), std::string);
+    REQUIRE_THROW_WITH(throw_method(), std::string);
+    CHECK_THROW_WITH(factorial(3), std::string);
+    REQUIRE_THROW_WITH(factorial(3), std::string);
 }
 
 TEST_CASE("String matcher example")
@@ -152,8 +152,10 @@ TEST_CASE("String matcher example")
     CHECK_THAT("Hello", Catch::Matchers::StartsWith("he"));
     REQUIRE_THAT("Hello", Catch::Matchers::StartsWith("He", Catch::CaseSensitive::No));
 }
+*/
+
 //BDD style
-/*
+
 SCENARIO( "vectors can be sized and resized", "[vector]" ) 
 {
          // given conditions
@@ -208,4 +210,3 @@ SCENARIO( "vectors can be sized and resized", "[vector]" )
         }
     }
 }
-*/

@@ -1,0 +1,5 @@
+Реализовать диаграмму классов из файла "Диаграмма классов.drawio.png".
+Реализовать тесты для каждого конкретного класса.
+
+Для реализации загрузчиков данных из разных форматов использовать nlohman json (https://github.com/nlohmann/json https://json.nlohmann.me/ для формата json), pugixml (https://pugixml.org/ для xml).
+В файлах Person.json и Person.xml находятся примеры сериализованных объектов.
